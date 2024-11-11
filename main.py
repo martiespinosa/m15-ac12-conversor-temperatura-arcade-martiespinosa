@@ -122,5 +122,7 @@ scene.set_background_image(img("""
 """))
 game.show_long_text("Temperature convertor", DialogLayout.CENTER)
 game.show_long_text(game.ask("A: C to F", "B: F to C"), DialogLayout.CENTER)
-game.show_long_text(game.ask_for_number("Enter the temperature", 3),
-    DialogLayout.CENTER)
+temp = game.ask_for_number("1. C to F | 2. F to C", 1)
+temp = game.ask_for_number("Enter the temperature", 3)
+temp = (temp - 32) * 0.55
+game.show_long_text(temp, DialogLayout.CENTER)

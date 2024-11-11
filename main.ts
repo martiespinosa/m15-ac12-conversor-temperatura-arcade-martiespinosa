@@ -1,3 +1,14 @@
+function f_to_c () {
+    result = Math.round(temp * (9 / 5) + 32)
+}
+function choose_option () {
+	
+}
+function c_to_f () {
+    result = Math.round((temp - 32) * (5 / 9))
+}
+let result = 0
+let temp = 0
 scene.setBackgroundImage(img`
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
@@ -121,7 +132,11 @@ scene.setBackgroundImage(img`
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
     `)
 game.showLongText("Temperature convertor", DialogLayout.Center)
-game.showLongText(game.ask("A: C to F", "B: F to C"), DialogLayout.Center)
-let temp = game.askForNumber("Enter the temperature", 3)
-temp = (temp - 32) * 0.55
-game.showLongText(temp, DialogLayout.Center)
+let option = game.askForNumber("1. C to F | 2. F to C", 1)
+temp = game.askForNumber("Enter the temperature", 3)
+if (option == 1) {
+    f_to_c()
+} else if (option == 2) {
+    c_to_f()
+}
+game.showLongText(result, DialogLayout.Center)
